@@ -1,129 +1,154 @@
 # xz_motion_mechanism_sim
 
-这是一个从 `/home/hyf/Documents/model.STEP` 转换整理出来的 ROS/Gazebo 模型包。
+这是一个面向 X-Z 两自由度运动机构仿真的 ROS Noetic / Gazebo Classic 模型包。
 
-原始 STEP 文件是 SolidWorks 2022 AP214 装配体，装配名称为 `模块设计_齿条方案.STEP`。
-当前包里保留了两类模型：
+模型来源于 STEP 装配体。包内保留了两类模型：
 
-- STEP 导出的高精度 STL 网格，用于 RViz/Gazebo 外观预览。
-- 面向 Gazebo 仿真的两自由度 URDF 模型，外观使用分组 STL，碰撞体使用简化几何。
+- STEP 导出的 STL 网格，用于 RViz/Gazebo 外观预览。
+- 两自由度 URDF 仿真模型，视觉使用分组 STL，物理碰撞暂时简化/关闭，便于先验证运动关系和控制接口。
 
-简化碰撞体的目的是让 Gazebo 仿真更稳定、计算更轻；如果后续需要精细接触，再把局部碰撞体替换成更细的网格或凸包。
+## 目录内容
 
-## 文件说明
+- `package.xml`：ROS 包信息。
+- `CMakeLists.txt`：catkin 构建和安装规则。
+- `urdf/xz_motion_mechanism.urdf`：Gazebo/ros_control 两自由度模型。
+- `urdf/xz_motion_mechanism_step_visual.urdf`：完整 STEP 外观的 RViz 静态预览模型。
+- `launch/gazebo_sim.launch`：启动 Gazebo 并生成模型，不加载控制器。
+- `launch/gazebo_2dof.launch`：启动 Gazebo，可选加载控制器。
+- `launch/sim_with_joint_gui.launch`：启动 Gazebo、控制器和关节滑条 GUI。
+- `launch/joint_command_gui.launch`：单独启动关节滑条 GUI。
+- `launch/display_2dof.launch`：在 RViz 中预览两自由度模型。
+- `meshes/base_visual.stl`：固定基座和支架外观。
+- `meshes/x_stage_visual.stl`：X 轴运动组件外观。
+- `meshes/y_stage_visual.stl`：Z 轴运动组件外观。
+- `meshes/grouped_meshes_manifest.txt`：当前 STEP 零件分组清单。
+- `scripts/convert_step_with_freecad.py`：用 FreeCAD 从 STEP 导出完整 STL。
+- `scripts/export_grouped_step_meshes.py`：用 FreeCAD 按分组规则导出三段 STL。
 
-- `model.config`：Gazebo Classic 模型元信息。
-- `model.sdf`：可直接被 Gazebo Classic 加载的 SDF 模型。
-- `urdf/xz_motion_mechanism.urdf`：两自由度 Gazebo/ros_control 动态模型，使用分组 STEP 网格作为视觉模型。
-- `urdf/xz_motion_mechanism_preview.urdf`：早期 ROS/RViz 预览模型。
-- `urdf/xz_motion_mechanism_step_visual.urdf`：使用完整 STEP 导出 STL 的 RViz 静态预览模型。
-- `launch/gazebo_sim.launch`：启动 Gazebo 并生成两自由度模型，不加载控制器。
-- `launch/gazebo_2dof.launch`：启动 Gazebo、生成两自由度模型，可通过参数选择是否加载控制器。
-- `launch/display.launch`：ROS Noetic RViz 预览入口。
-- `launch/display_step_visual.launch`：完整 STEP 外观的 RViz 静态预览入口。
-- `launch/display_2dof.launch`：两自由度分组模型的 RViz 预览入口，可用滑条移动关节。
-- `rviz/xz_motion_mechanism_preview.rviz`：早期 RViz 配置。
-- `rviz/xz_motion_mechanism.rviz`：两自由度模型 RViz 配置。
-- `rviz/xz_motion_mechanism_step_visual.rviz`：完整 STEP 外观 RViz 配置。
-- `scripts/convert_step_with_freecad.py`：使用 FreeCAD 从 STEP 导出完整 STL 的辅助脚本。
-- `scripts/export_grouped_step_meshes.py`：使用 FreeCAD 按部件名称分组导出 STL 的辅助脚本。
-- `meshes/module_visual.stl`：从原始 STEP 导出的完整静态外观网格。
-- `meshes/base_visual.stl`、`meshes/x_stage_visual.stl`、`meshes/y_stage_visual.stl`：两自由度模型使用的分组外观网格。
-- `meshes/grouped_meshes_manifest.txt`：当前 STEP 零件到 `base/x_stage/y_stage` 的分组清单。
+## 推荐安装方式：catkin 工作空间
 
-## Gazebo 中直接加载模型
-
-从 `/home/hyf/Documents` 执行：
+把本包放到任意 catkin 工作空间的 `src` 目录下，例如：
 
 ```bash
-export GAZEBO_MODEL_PATH=/home/hyf/Documents/gazebo_rl_model
-gazebo
+mkdir -p ~/catkin_ws/src
+cp -r xz_motion_mechanism_sim ~/catkin_ws/src/
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
 ```
 
-然后在 Gazebo 的模型列表中插入 `xz_motion_mechanism_sim`，也可以通过 ROS 的 launch 文件生成模型。
-
-## 启动两自由度 Gazebo 仿真
-
-推荐先启动不带控制器的版本，确认模型姿态和外观正确：
+之后 ROS 会自动找到这个包：
 
 ```bash
-cd /home/hyf/Documents
+rospack find xz_motion_mechanism_sim
+```
+
+如果希望每个新终端自动生效，可以加入 `~/.bashrc`：
+
+```bash
+echo 'source /opt/ros/noetic/setup.bash' >> ~/.bashrc
+echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
+source ~/.bashrc
+```
+
+## 不构建时的使用方式
+
+如果只是把包放在某个普通目录中，也可以不运行 `catkin_make`。这时需要让 `ROS_PACKAGE_PATH` 指向“包所在的父目录”。
+
+假设目录结构是：
+
+```text
+<package_parent>/xz_motion_mechanism_sim
+```
+
+则执行：
+
+```bash
 source /opt/ros/noetic/setup.bash
-export ROS_PACKAGE_PATH=/home/hyf/Documents/gazebo_rl_model:$ROS_PACKAGE_PATH
+export ROS_PACKAGE_PATH=<package_parent>:$ROS_PACKAGE_PATH
+```
+
+例如包在 `~/models/xz_motion_mechanism_sim`，则：
+
+```bash
+export ROS_PACKAGE_PATH=~/models:$ROS_PACKAGE_PATH
+```
+
+同样可以写入 `~/.bashrc`：
+
+```bash
+echo 'source /opt/ros/noetic/setup.bash' >> ~/.bashrc
+echo 'export ROS_PACKAGE_PATH=<package_parent>:$ROS_PACKAGE_PATH' >> ~/.bashrc
+source ~/.bashrc
+```
+
+把 `<package_parent>` 换成你自己的实际路径。
+
+## Gazebo 模型路径
+
+通过本包的 ROS launch 启动时，通常不需要手动设置 `GAZEBO_MODEL_PATH`，因为 URDF 里的网格使用 `package://xz_motion_mechanism_sim/...` 路径。
+
+如果你想在 Gazebo 的 Insert 面板中直接看到这个模型，或者直接加载 `model.sdf` / `model_step_visual.sdf`，需要让 `GAZEBO_MODEL_PATH` 指向包所在的父目录：
+
+```bash
+export GAZEBO_MODEL_PATH=<package_parent>:$GAZEBO_MODEL_PATH
+```
+
+如果 ROS 已经能找到包，也可以自动推导：
+
+```bash
+PKG_ROOT=$(rospack find xz_motion_mechanism_sim)
+export GAZEBO_MODEL_PATH=$(dirname "$PKG_ROOT"):$GAZEBO_MODEL_PATH
+```
+
+## 启动仿真
+
+启动 Gazebo、模型、控制器和滑条控制 GUI：
+
+```bash
+roslaunch xz_motion_mechanism_sim sim_with_joint_gui.launch
+```
+
+只启动 Gazebo 和模型，不加载控制器：
+
+```bash
 roslaunch xz_motion_mechanism_sim gazebo_sim.launch
 ```
 
-默认生成姿态会把 CAD 装配体立起来：
-
-```text
-spawn_z:=0.41
-spawn_roll:=-1.57079632679
-```
-
-如果在你的 Gazebo 里方向正好反了，可以临时这样启动：
+启动 Gazebo 和控制器，不启动滑条 GUI：
 
 ```bash
-roslaunch xz_motion_mechanism_sim gazebo_2dof.launch spawn_roll:=1.57079632679
+roslaunch xz_motion_mechanism_sim gazebo_2dof.launch controllers:=true gui:=true
 ```
 
-当前两自由度运动链为：
-
-```text
-world --fixed--> base_link --x_axis_joint--> x_stage_link --y_axis_joint--> y_stage_link
-```
-
-其中：
-
-- `base_link`：固定底座、门架支架、横梁、固定导轨、横向长齿条和滚轮滑座。
-- `x_stage_link`：相对横向长齿条运动的整套盒盖/滑座组件，包含顶部导轨滑块、电机、齿轮、执行机构连接件和盒盖等部件。
-- `y_stage_link`：只有竖向齿条，作为相对盒盖组件运动的第二自由度部件。
-- `x_axis_joint`：X 向直线关节，默认行程 `-0.50` 到 `0.50` m。
-- `y_axis_joint`：Y 向直线关节，默认行程 `-0.24` 到 `0.24` m。
-
-## 启动控制器
-
-需要通过 topic 控制两个直线关节时，启动带控制器版本：
+单独启动滑条 GUI：
 
 ```bash
-roslaunch xz_motion_mechanism_sim gazebo_2dof.launch controllers:=true
+roslaunch xz_motion_mechanism_sim joint_command_gui.launch
 ```
 
-两个位置控制 topic 为：
+## 控制话题
+
+控制器启动后，两个位置控制话题为：
 
 ```bash
 /xz_motion_mechanism/x_axis_position_controller/command
 /xz_motion_mechanism/y_axis_position_controller/command
 ```
 
-示例命令：
+示例：
 
 ```bash
 rostopic pub -1 /xz_motion_mechanism/x_axis_position_controller/command std_msgs/Float64 "data: 0.25"
 rostopic pub -1 /xz_motion_mechanism/y_axis_position_controller/command std_msgs/Float64 "data: 0.10"
 ```
 
-也可以打开图形滑条控制面板：
-
-```bash
-roslaunch xz_motion_mechanism_sim joint_command_gui.launch
-```
-
-使用这个面板前，需要先用 `controllers:=true` 启动 Gazebo 模型。面板会以 20 Hz 持续发布两个关节的位置指令。
-
-也可以一条命令同时启动 Gazebo、控制器和滑条面板：
-
-```bash
-roslaunch xz_motion_mechanism_sim sim_with_joint_gui.launch
-```
-
 ## RViz 预览
 
-RViz 需要 ROS 能找到这个包。先设置 `ROS_PACKAGE_PATH`：
+预览两自由度分组模型，并用滑条移动关节：
 
 ```bash
-cd /home/hyf/Documents
-source /opt/ros/noetic/setup.bash
-export ROS_PACKAGE_PATH=/home/hyf/Documents/gazebo_rl_model:$ROS_PACKAGE_PATH
+roslaunch xz_motion_mechanism_sim display_2dof.launch
 ```
 
 预览完整 STEP 静态外观：
@@ -132,39 +157,60 @@ export ROS_PACKAGE_PATH=/home/hyf/Documents/gazebo_rl_model:$ROS_PACKAGE_PATH
 roslaunch xz_motion_mechanism_sim display_step_visual.launch
 ```
 
-预览两自由度分组模型，并用滑条移动关节：
+## 生成姿态参数
 
-```bash
-roslaunch xz_motion_mechanism_sim display_2dof.launch
+默认 Gazebo 生成姿态：
+
+```text
+spawn_z:=0.41
+spawn_roll:=-1.57079632679
 ```
 
-如果缺少 `robot_state_publisher` 或 `joint_state_publisher`，需要安装对应的 ROS Noetic 软件包后再启动。
+如果模型方向需要微调，可以在启动时覆盖：
 
-## 重新生成 STEP 外观网格
+```bash
+roslaunch xz_motion_mechanism_sim gazebo_2dof.launch spawn_z:=0.40 spawn_roll:=-1.57079632679
+```
+
+## 重新生成 STL
 
 重新导出完整静态 STL：
 
 ```bash
-cd /home/hyf/Documents/gazebo_rl_model/xz_motion_mechanism_sim/scripts
-freecadcmd convert_step_with_freecad.py /home/hyf/Documents/model.STEP ../meshes/module_visual.stl
+cd <package_root>/scripts
+freecadcmd convert_step_with_freecad.py <path_to_step_file> ../meshes/module_visual.stl
 ```
 
-重新按部件分组导出两自由度 STL：
+重新按当前分组规则导出两自由度 STL：
 
 ```bash
-cd /home/hyf/Documents/gazebo_rl_model/xz_motion_mechanism_sim/scripts
-freecadcmd export_grouped_step_meshes.py /home/hyf/Documents/model.STEP ../meshes
+cd <package_root>/scripts
+freecadcmd export_grouped_step_meshes.py <path_to_step_file> ../meshes
 ```
 
-导出的 STL 单位是毫米。URDF/SDF 中使用 `scale="0.001 0.001 0.001"` 转成米，并用测得的 STEP 整体中心
-`(347.488, 369.008, 590.000) mm` 做坐标居中。
+其中：
 
-## 建模假设
+- `<package_root>` 是 `xz_motion_mechanism_sim` 包目录。
+- `<path_to_step_file>` 是你的 STEP 文件路径。
+
+导出的 STL 单位是毫米。URDF/SDF 中使用 `scale="0.001 0.001 0.001"` 转成米，并使用测得的 STEP 整体中心 `(347.488, 369.008, 590.000) mm` 做坐标居中。
+
+## 当前运动关系
+
+```text
+world --fixed--> base_link --x_axis_joint--> x_stage_link --y_axis_joint--> y_stage_link
+```
+
+- `base_link`：固定底座、门架支架、横梁、固定导轨、横向长齿条和滚轮滑座。
+- `x_stage_link`：相对横向长齿条运动的盒盖/滑座组件，包含顶部导轨滑块、电机、齿轮、执行机构连接件和盒盖等。
+- `y_stage_link`：竖向齿条，作为相对盒盖组件运动的第二自由度部件。
+- `x_axis_joint`：X 向直线关节，默认行程 `-0.50` 到 `0.50` m。
+- `y_axis_joint`：Z 向直线关节的仿真接口，当前 URDF 内部名称仍为 `y_axis_joint`，默认行程 `-0.24` 到 `0.24` m。
+
+## 建模说明
 
 - 视觉模型来自 STEP 分组网格，尽量保持真实外观。
-- 横向长齿条和 `滚轮滑座` 固定在 `base_link` 中，盒盖以下整套组件作为 `x_stage_link` 相对它们运动；竖向齿条作为 `y_stage_link` 再相对盒盖组件运动。
-- 物理碰撞体是 box 简化模型，不追求齿条、齿轮、型材槽口等细节接触。
-- 当前两自由度调试模型暂时关闭了碰撞体，避免粗略 box 和地面/运动部件穿插导致 Gazebo 发抖。
+- 当前两自由度调试模型暂时关闭碰撞体，避免粗略 box 和地面/运动部件穿插导致 Gazebo 发抖。
 - 基座通过 `world_to_base` 固定在 Gazebo 世界中，防止机构作为自由刚体在重力下翻倒。
 - 两个自由度用 Gazebo 支持良好的 prismatic joint 表达，适合先完成机构仿真和控制联调。
-- 如果后续需要表达齿轮-齿条啮合，可以在控制层建立位移-转角映射，或者再增加 mimic/插件逻辑。
+- 如果后续需要表达齿轮-齿条啮合，可以在控制层建立位移-转角映射，或者增加 mimic/插件逻辑。

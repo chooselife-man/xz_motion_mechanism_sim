@@ -4,10 +4,10 @@ Optional STEP-to-mesh conversion helper.
 
 Run this with FreeCAD's Python interpreter, for example:
 
-    freecadcmd convert_step_with_freecad.py /home/hyf/Documents/model.STEP ../meshes/module_visual.stl
+    freecadcmd convert_step_with_freecad.py /path/to/model.STEP ../meshes/module_visual.stl
 
-The generated mesh should be used as visual geometry in Gazebo. For RL collision, keep the
-primitive collision shapes in model.sdf unless detailed contacts are required.
+The generated mesh should be used as visual geometry in Gazebo. Keep collision geometry
+simplified unless detailed contacts are required.
 """
 
 from __future__ import annotations
