@@ -1,0 +1,9 @@
+<launch>
+  <node name="joint_command_gui" pkg="xz_motion_mechanism_sim" type="joint_command_gui.py" output="screen">
+    <param name="x_min" value="-0.50"/>
+    <param name="x_max" value="0.50"/>
+    <param name="y_min" value="-0.24"/>
+    <param name="y_max" value="0.24"/>
+    <param name="rate_hz" value="20.0"/>
+  </node>
+</launch>

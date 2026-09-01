@@ -1,0 +1,615 @@
+<?xml version="1.0"?>
+<robot name="xz_motion_mechanism_sim">
+  <material name="aluminium">
+    <color rgba="0.74 0.76 0.74 1"/>
+  </material>
+  <material name="aluminium_dark">
+    <color rgba="0.56 0.58 0.57 1"/>
+  </material>
+  <material name="slot_black">
+    <color rgba="0.035 0.038 0.040 1"/>
+  </material>
+  <material name="dark_metal">
+    <color rgba="0.13 0.14 0.15 1"/>
+  </material>
+  <material name="rail_dark">
+    <color rgba="0.20 0.22 0.23 1"/>
+  </material>
+  <material name="steel">
+    <color rgba="0.72 0.72 0.70 1"/>
+  </material>
+  <material name="gear_steel">
+    <color rgba="0.48 0.49 0.47 1"/>
+  </material>
+  <material name="carriage_blue">
+    <color rgba="0.04 0.28 0.50 1"/>
+  </material>
+  <material name="anodized_blue">
+    <color rgba="0.06 0.38 0.68 1"/>
+  </material>
+  <material name="motor_black">
+    <color rgba="0.05 0.05 0.06 1"/>
+  </material>
+  <material name="motor_label">
+    <color rgba="0.85 0.88 0.82 1"/>
+  </material>
+  <material name="bolt_black">
+    <color rgba="0.01 0.01 0.012 1"/>
+  </material>
+
+  <link name="world"/>
+
+  <link name="base_frame">
+    <visual name="base_8080_body">
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
+      <geometry><box size="0.18 1.08 0.08"/></geometry>
+      <material name="aluminium"/>
+    </visual>
+    <visual name="base_top_slot_-0.055">
+      <origin xyz="-0.055 0 0.083" rpy="0 0 0"/>
+      <geometry><box size="0.012 1.09 0.006"/></geometry>
+      <material name="slot_black"/>
+    </visual>
+    <visual name="base_top_slot_0.055">
+      <origin xyz="0.055 0 0.083" rpy="0 0 0"/>
+      <geometry><box size="0.012 1.09 0.006"/></geometry>
+      <material name="slot_black"/>
+    </visual>
+    <visual name="base_side_slot_-0.092">
+      <origin xyz="-0.092 0 0.04" rpy="0 0 0"/>
+      <geometry><box size="0.006 1.09 0.018"/></geometry>
+      <material name="slot_black"/>
+    </visual>
+    <visual name="base_side_slot_0.092">
+      <origin xyz="0.092 0 0.04" rpy="0 0 0"/>
+      <geometry><box size="0.006 1.09 0.018"/></geometry>
+      <material name="slot_black"/>
+    </visual>
+    <visual name="left_4040_profile">
+      <origin xyz="-0.16 0 0.13" rpy="0 0 0"/>
+      <geometry><box size="0.04 1.02 0.04"/></geometry>
+      <material name="aluminium_dark"/>
+    </visual>
+    <visual name="left_profile_top_slot">
+      <origin xyz="-0.16 0 0.153" rpy="0 0 0"/>
+      <geometry><box size="0.012 1.03 0.006"/></geometry>
+      <material name="slot_black"/>
+    </visual>
+    <visual name="left_profile_inner_slot">
+      <origin xyz="-0.1568 0 0.13" rpy="0 0 0"/>
+      <geometry><box size="0.006 1.03 0.014"/></geometry>
+      <material name="slot_black"/>
+    </visual>
+    <visual name="right_4040_profile">
+      <origin xyz="0.16 0 0.13" rpy="0 0 0"/>
+      <geometry><box size="0.04 1.02 0.04"/></geometry>
+      <material name="aluminium_dark"/>
+    </visual>
+    <visual name="right_profile_top_slot">
+      <origin xyz="0.16 0 0.153" rpy="0 0 0"/>
+      <geometry><box size="0.012 1.03 0.006"/></geometry>
+      <material name="slot_black"/>
+    </visual>
+    <visual name="right_profile_inner_slot">
+      <origin xyz="0.1568 0 0.13" rpy="0 0 0"/>
+      <geometry><box size="0.006 1.03 0.014"/></geometry>
+      <material name="slot_black"/>
+    </visual>
+    <visual name="rail_base">
+      <origin xyz="0 0 0.148" rpy="0 0 0"/>
+      <geometry><box size="0.085 1.02 0.016"/></geometry>
+      <material name="rail_dark"/>
+    </visual>
+    <visual name="guide_round_-0.026">
+      <origin xyz="-0.026 0 0.164" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0090" length="1.0300"/></geometry>
+      <material name="steel"/>
+    </visual>
+    <visual name="guide_round_0.026">
+      <origin xyz="0.026 0 0.164" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0090" length="1.0300"/></geometry>
+      <material name="steel"/>
+    </visual>
+    <visual name="rack_backbone">
+      <origin xyz="0.082 0 0.181" rpy="0 0 0"/>
+      <geometry><box size="0.026 1.00 0.022"/></geometry>
+      <material name="dark_metal"/>
+    </visual>
+    <visual name="rack_tooth_00">
+      <origin xyz="0.099 -0.480 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_01">
+      <origin xyz="0.099 -0.456 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_02">
+      <origin xyz="0.099 -0.432 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_03">
+      <origin xyz="0.099 -0.408 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_04">
+      <origin xyz="0.099 -0.384 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_05">
+      <origin xyz="0.099 -0.360 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_06">
+      <origin xyz="0.099 -0.336 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_07">
+      <origin xyz="0.099 -0.312 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_08">
+      <origin xyz="0.099 -0.288 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_09">
+      <origin xyz="0.099 -0.264 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_10">
+      <origin xyz="0.099 -0.240 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_11">
+      <origin xyz="0.099 -0.216 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_12">
+      <origin xyz="0.099 -0.192 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_13">
+      <origin xyz="0.099 -0.168 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_14">
+      <origin xyz="0.099 -0.144 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_15">
+      <origin xyz="0.099 -0.120 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_16">
+      <origin xyz="0.099 -0.096 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_17">
+      <origin xyz="0.099 -0.072 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_18">
+      <origin xyz="0.099 -0.048 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_19">
+      <origin xyz="0.099 -0.024 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_20">
+      <origin xyz="0.099 0.000 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_21">
+      <origin xyz="0.099 0.024 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_22">
+      <origin xyz="0.099 0.048 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_23">
+      <origin xyz="0.099 0.072 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_24">
+      <origin xyz="0.099 0.096 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_25">
+      <origin xyz="0.099 0.120 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_26">
+      <origin xyz="0.099 0.144 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_27">
+      <origin xyz="0.099 0.168 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_28">
+      <origin xyz="0.099 0.192 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_29">
+      <origin xyz="0.099 0.216 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_30">
+      <origin xyz="0.099 0.240 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_31">
+      <origin xyz="0.099 0.264 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_32">
+      <origin xyz="0.099 0.288 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_33">
+      <origin xyz="0.099 0.312 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_34">
+      <origin xyz="0.099 0.336 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_35">
+      <origin xyz="0.099 0.360 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_36">
+      <origin xyz="0.099 0.384 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_37">
+      <origin xyz="0.099 0.408 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_38">
+      <origin xyz="0.099 0.432 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_39">
+      <origin xyz="0.099 0.456 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="rack_tooth_40">
+      <origin xyz="0.099 0.480 0.200" rpy="0 0 0.785398"/>
+      <geometry><box size="0.018 0.012 0.018"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="end_plate_-0.535">
+      <origin xyz="0 -0.535 0.125" rpy="0 0 0"/>
+      <geometry><box size="0.23 0.018 0.15"/></geometry>
+      <material name="dark_metal"/>
+    </visual>
+    <visual name="end_bolt_-0.535_-0.07_0.08">
+      <origin xyz="-0.07 -0.535 0.08" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0080" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="end_bolt_-0.535_-0.07_0.17">
+      <origin xyz="-0.07 -0.535 0.17" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0080" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="end_bolt_-0.535_0.07_0.08">
+      <origin xyz="0.07 -0.535 0.08" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0080" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="end_bolt_-0.535_0.07_0.17">
+      <origin xyz="0.07 -0.535 0.17" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0080" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="end_plate_0.535">
+      <origin xyz="0 0.535 0.125" rpy="0 0 0"/>
+      <geometry><box size="0.23 0.018 0.15"/></geometry>
+      <material name="dark_metal"/>
+    </visual>
+    <visual name="end_bolt_0.535_-0.07_0.08">
+      <origin xyz="-0.07 0.535 0.08" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0080" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="end_bolt_0.535_-0.07_0.17">
+      <origin xyz="-0.07 0.535 0.17" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0080" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="end_bolt_0.535_0.07_0.08">
+      <origin xyz="0.07 0.535 0.08" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0080" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="end_bolt_0.535_0.07_0.17">
+      <origin xyz="0.07 0.535 0.17" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0080" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <collision name="base_collision">
+      <origin xyz="0 0 0.04" rpy="0 0 0"/>
+      <geometry><box size="0.22 1.10 0.09"/></geometry>
+    </collision>
+    <collision name="rail_collision">
+      <origin xyz="0 0 0.16" rpy="0 0 0"/>
+      <geometry><box size="0.09 1.02 0.04"/></geometry>
+    </collision>
+    <collision name="rack_collision">
+      <origin xyz="0.087 0 0.19" rpy="0 0 0"/>
+      <geometry><box size="0.04 1.00 0.04"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="25.0"/>
+      <inertia ixx="0.75" ixy="0" ixz="0" iyy="2.1" iyz="0" izz="2.65"/>
+    </inertial>
+  </link>
+
+  <joint name="world_fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_frame"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="carriage">
+    <visual name="slider_block_body">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.14 0.13 0.05"/></geometry>
+      <material name="carriage_blue"/>
+    </visual>
+    <visual name="top_mount_plate">
+      <origin xyz="0 0 0.043" rpy="0 0 0"/>
+      <geometry><box size="0.22 0.18 0.018"/></geometry>
+      <material name="anodized_blue"/>
+    </visual>
+    <visual name="front_clamp">
+      <origin xyz="0.075 0 0.005" rpy="0 0 0"/>
+      <geometry><box size="0.025 0.15 0.065"/></geometry>
+      <material name="dark_metal"/>
+    </visual>
+    <visual name="rear_clamp">
+      <origin xyz="-0.075 0 0.005" rpy="0 0 0"/>
+      <geometry><box size="0.025 0.15 0.065"/></geometry>
+      <material name="dark_metal"/>
+    </visual>
+    <visual name="carriage_cap_-0.075_-0.055">
+      <origin xyz="-0.075 -0.055 0.057" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.0100" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="carriage_cap_-0.075_0.055">
+      <origin xyz="-0.075 0.055 0.057" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.0100" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="carriage_cap_0.075_-0.055">
+      <origin xyz="0.075 -0.055 0.057" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.0100" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="carriage_cap_0.075_0.055">
+      <origin xyz="0.075 0.055 0.057" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.0100" length="0.0060"/></geometry>
+      <material name="bolt_black"/>
+    </visual>
+    <visual name="roller_-0.105_-0.052">
+      <origin xyz="-0.105 -0.052 -0.012" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0160" length="0.0120"/></geometry>
+      <material name="steel"/>
+    </visual>
+    <visual name="roller_-0.105_0.052">
+      <origin xyz="-0.105 0.052 -0.012" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0160" length="0.0120"/></geometry>
+      <material name="steel"/>
+    </visual>
+    <visual name="roller_0.105_-0.052">
+      <origin xyz="0.105 -0.052 -0.012" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0160" length="0.0120"/></geometry>
+      <material name="steel"/>
+    </visual>
+    <visual name="roller_0.105_0.052">
+      <origin xyz="0.105 0.052 -0.012" rpy="1.570796 0 0"/>
+      <geometry><cylinder radius="0.0160" length="0.0120"/></geometry>
+      <material name="steel"/>
+    </visual>
+    <collision name="carriage_collision">
+      <origin xyz="0 0 0.018" rpy="0 0 0"/>
+      <geometry><box size="0.23 0.18 0.085"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="5.0"/>
+      <inertia ixx="0.014" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.018"/>
+    </inertial>
+  </link>
+
+  <joint name="carriage_slide_joint" type="prismatic">
+    <parent link="base_frame"/>
+    <child link="carriage"/>
+    <origin xyz="0 0 0.205" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.42" upper="0.42" effort="180" velocity="1.2"/>
+    <dynamics damping="18.0" friction="3.0"/>
+  </joint>
+
+  <link name="servo_and_pinion">
+    <visual name="servo_body">
+      <origin xyz="0 0 -0.055" rpy="0 0 0"/>
+      <geometry><box size="0.085 0.085 0.115"/></geometry>
+      <material name="motor_black"/>
+    </visual>
+    <visual name="servo_label">
+      <origin xyz="0 -0.0435 -0.055" rpy="0 0 0"/>
+      <geometry><box size="0.055 0.003 0.045"/></geometry>
+      <material name="motor_label"/>
+    </visual>
+    <visual name="servo_flange">
+      <origin xyz="0 0 0.010" rpy="1.570796 0 0"/>
+      <geometry><box size="0.115 0.012 0.115"/></geometry>
+      <material name="dark_metal"/>
+    </visual>
+    <visual name="motor_shaft">
+      <origin xyz="0 0 0.068" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.0140" length="0.0500"/></geometry>
+      <material name="steel"/>
+    </visual>
+    <visual name="pinion_body">
+      <origin xyz="0 0 0.098" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.0440" length="0.0260"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_00">
+      <origin xyz="0.0520 0.0000 0.098" rpy="0 0 0.000000"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_01">
+      <origin xyz="0.0489 0.0178 0.098" rpy="0 0 0.349066"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_02">
+      <origin xyz="0.0398 0.0334 0.098" rpy="0 0 0.698132"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_03">
+      <origin xyz="0.0260 0.0450 0.098" rpy="0 0 1.047198"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_04">
+      <origin xyz="0.0090 0.0512 0.098" rpy="0 0 1.396263"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_05">
+      <origin xyz="-0.0090 0.0512 0.098" rpy="0 0 1.745329"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_06">
+      <origin xyz="-0.0260 0.0450 0.098" rpy="0 0 2.094395"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_07">
+      <origin xyz="-0.0398 0.0334 0.098" rpy="0 0 2.443461"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_08">
+      <origin xyz="-0.0489 0.0178 0.098" rpy="0 0 2.792527"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_09">
+      <origin xyz="-0.0520 0.0000 0.098" rpy="0 0 3.141593"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_10">
+      <origin xyz="-0.0489 -0.0178 0.098" rpy="0 0 3.490659"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_11">
+      <origin xyz="-0.0398 -0.0334 0.098" rpy="0 0 3.839724"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_12">
+      <origin xyz="-0.0260 -0.0450 0.098" rpy="0 0 4.188790"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_13">
+      <origin xyz="-0.0090 -0.0512 0.098" rpy="0 0 4.537856"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_14">
+      <origin xyz="0.0090 -0.0512 0.098" rpy="0 0 4.886922"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_15">
+      <origin xyz="0.0260 -0.0450 0.098" rpy="0 0 5.235988"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_16">
+      <origin xyz="0.0398 -0.0334 0.098" rpy="0 0 5.585054"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <visual name="pinion_tooth_17">
+      <origin xyz="0.0489 -0.0178 0.098" rpy="0 0 5.934119"/>
+      <geometry><box size="0.014 0.006 0.026"/></geometry>
+      <material name="gear_steel"/>
+    </visual>
+    <collision name="servo_collision">
+      <origin xyz="0 0 -0.055" rpy="0 0 0"/>
+      <geometry><box size="0.09 0.09 0.12"/></geometry>
+    </collision>
+    <collision name="pinion_collision">
+      <origin xyz="0 0 0.098" rpy="0 0 0"/>
+      <geometry><box size="0.11 0.11 0.03"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="2.8"/>
+      <inertia ixx="0.012" ixy="0" ixz="0" iyy="0.012" iyz="0" izz="0.006"/>
+    </inertial>
+  </link>
+
+  <joint name="pinion_drive_joint" type="revolute">
+    <parent link="base_frame"/>
+    <child link="servo_and_pinion"/>
+    <origin xyz="0.145 -0.35 0.215" rpy="1.570796 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1000000" upper="1000000" effort="15" velocity="40"/>
+    <dynamics damping="0.15" friction="0.02"/>
+  </joint>
+</robot>

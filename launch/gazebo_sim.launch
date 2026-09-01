@@ -1,0 +1,7 @@
+<launch>
+  <include file="$(find xz_motion_mechanism_sim)/launch/gazebo_2dof.launch">
+    <arg name="gui" value="false"/>
+    <arg name="verbose" value="true"/>
+    <arg name="controllers" value="false"/>
+  </include>
+</launch>

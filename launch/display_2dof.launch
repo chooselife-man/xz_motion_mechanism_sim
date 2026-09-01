@@ -1,0 +1,13 @@
+<launch>
+  <arg name="model" default="$(find xz_motion_mechanism_sim)/urdf/xz_motion_mechanism.urdf"/>
+  <arg name="rviz_config" default="$(find xz_motion_mechanism_sim)/rviz/xz_motion_mechanism.rviz"/>
+  <arg name="use_gui" default="true"/>
+
+  <param name="robot_description" textfile="$(arg model)"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="$(arg use_gui)"/>
+  </node>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_config)" required="true"/>
+</launch>

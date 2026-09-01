@@ -1,0 +1,37 @@
+<launch>
+  <arg name="paused" default="false"/>
+  <arg name="gui" default="false"/>
+  <arg name="verbose" default="true"/>
+  <arg name="controllers" default="false"/>
+  <arg name="model_name" default="xz_motion_mechanism"/>
+  <arg name="world_name" default="worlds/empty.world"/>
+  <arg name="spawn_x" default="0"/>
+  <arg name="spawn_y" default="0"/>
+  <arg name="spawn_z" default="0.41"/>
+  <arg name="spawn_roll" default="-1.57079632679"/>
+  <arg name="spawn_pitch" default="0"/>
+  <arg name="spawn_yaw" default="0"/>
+
+  <env name="GAZEBO_MODEL_PATH" value="/home/hyf/Documents/gazebo_rl_model"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="verbose" value="$(arg verbose)"/>
+    <arg name="use_sim_time" value="true"/>
+  </include>
+
+  <param name="robot_description" textfile="$(find xz_motion_mechanism_sim)/urdf/xz_motion_mechanism.urdf"/>
+  <rosparam if="$(arg controllers)" file="$(find xz_motion_mechanism_sim)/config/xz_motion_mechanism_controllers.yaml" command="load"/>
+
+  <node name="spawn_xz_motion_mechanism" pkg="gazebo_ros" type="spawn_model"
+        args="-urdf -param robot_description -model $(arg model_name) -x $(arg spawn_x) -y $(arg spawn_y) -z $(arg spawn_z) -R $(arg spawn_roll) -P $(arg spawn_pitch) -Y $(arg spawn_yaw)"
+        output="screen"/>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        if="$(arg controllers)"
+        ns="/xz_motion_mechanism"
+        args="joint_state_controller x_axis_position_controller y_axis_position_controller"
+        output="screen"/>
+</launch>

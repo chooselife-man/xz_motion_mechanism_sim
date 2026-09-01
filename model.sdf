@@ -1,0 +1,571 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <model name="xz_motion_mechanism_sim">
+    <pose>0 0 0 0 0 0</pose>
+    <static>false</static>
+
+    <link name="base_frame">
+      <visual name="base_8080_body">
+        <pose>0 0 0.04 0 0 0</pose>
+        <geometry><box><size>0.18 1.08 0.08</size></box></geometry>
+        <material><ambient>0.74 0.76 0.74 1</ambient><diffuse>0.74 0.76 0.74 1</diffuse><specular>0.4 0.4 0.4 1</specular></material>
+      </visual>
+      <visual name="base_top_slot_-0.055">
+        <pose>-0.055 0 0.083 0 0 0</pose>
+        <geometry><box><size>0.012 1.09 0.006</size></box></geometry>
+        <material><ambient>0.035 0.038 0.040 1</ambient><diffuse>0.035 0.038 0.040 1</diffuse><specular>0.05 0.05 0.05 1</specular></material>
+      </visual>
+      <visual name="base_top_slot_0.055">
+        <pose>0.055 0 0.083 0 0 0</pose>
+        <geometry><box><size>0.012 1.09 0.006</size></box></geometry>
+        <material><ambient>0.035 0.038 0.040 1</ambient><diffuse>0.035 0.038 0.040 1</diffuse><specular>0.05 0.05 0.05 1</specular></material>
+      </visual>
+      <visual name="base_side_slot_-0.092">
+        <pose>-0.092 0 0.04 0 0 0</pose>
+        <geometry><box><size>0.006 1.09 0.018</size></box></geometry>
+        <material><ambient>0.035 0.038 0.040 1</ambient><diffuse>0.035 0.038 0.040 1</diffuse><specular>0.05 0.05 0.05 1</specular></material>
+      </visual>
+      <visual name="base_side_slot_0.092">
+        <pose>0.092 0 0.04 0 0 0</pose>
+        <geometry><box><size>0.006 1.09 0.018</size></box></geometry>
+        <material><ambient>0.035 0.038 0.040 1</ambient><diffuse>0.035 0.038 0.040 1</diffuse><specular>0.05 0.05 0.05 1</specular></material>
+      </visual>
+      <visual name="left_4040_profile">
+        <pose>-0.16 0 0.13 0 0 0</pose>
+        <geometry><box><size>0.04 1.02 0.04</size></box></geometry>
+        <material><ambient>0.56 0.58 0.57 1</ambient><diffuse>0.56 0.58 0.57 1</diffuse><specular>0.3 0.3 0.3 1</specular></material>
+      </visual>
+      <visual name="left_profile_top_slot">
+        <pose>-0.16 0 0.153 0 0 0</pose>
+        <geometry><box><size>0.012 1.03 0.006</size></box></geometry>
+        <material><ambient>0.035 0.038 0.040 1</ambient><diffuse>0.035 0.038 0.040 1</diffuse><specular>0.05 0.05 0.05 1</specular></material>
+      </visual>
+      <visual name="left_profile_inner_slot">
+        <pose>-0.1568 0 0.13 0 0 0</pose>
+        <geometry><box><size>0.006 1.03 0.014</size></box></geometry>
+        <material><ambient>0.035 0.038 0.040 1</ambient><diffuse>0.035 0.038 0.040 1</diffuse><specular>0.05 0.05 0.05 1</specular></material>
+      </visual>
+      <visual name="right_4040_profile">
+        <pose>0.16 0 0.13 0 0 0</pose>
+        <geometry><box><size>0.04 1.02 0.04</size></box></geometry>
+        <material><ambient>0.56 0.58 0.57 1</ambient><diffuse>0.56 0.58 0.57 1</diffuse><specular>0.3 0.3 0.3 1</specular></material>
+      </visual>
+      <visual name="right_profile_top_slot">
+        <pose>0.16 0 0.153 0 0 0</pose>
+        <geometry><box><size>0.012 1.03 0.006</size></box></geometry>
+        <material><ambient>0.035 0.038 0.040 1</ambient><diffuse>0.035 0.038 0.040 1</diffuse><specular>0.05 0.05 0.05 1</specular></material>
+      </visual>
+      <visual name="right_profile_inner_slot">
+        <pose>0.1568 0 0.13 0 0 0</pose>
+        <geometry><box><size>0.006 1.03 0.014</size></box></geometry>
+        <material><ambient>0.035 0.038 0.040 1</ambient><diffuse>0.035 0.038 0.040 1</diffuse><specular>0.05 0.05 0.05 1</specular></material>
+      </visual>
+      <visual name="rail_base">
+        <pose>0 0 0.148 0 0 0</pose>
+        <geometry><box><size>0.085 1.02 0.016</size></box></geometry>
+        <material><ambient>0.20 0.22 0.23 1</ambient><diffuse>0.20 0.22 0.23 1</diffuse><specular>0.35 0.35 0.35 1</specular></material>
+      </visual>
+      <visual name="guide_round_-0.026">
+        <pose>-0.026 0 0.164 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0090</radius><length>1.0300</length></cylinder></geometry>
+        <material><ambient>0.72 0.72 0.70 1</ambient><diffuse>0.72 0.72 0.70 1</diffuse><specular>0.65 0.65 0.65 1</specular></material>
+      </visual>
+      <visual name="guide_round_0.026">
+        <pose>0.026 0 0.164 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0090</radius><length>1.0300</length></cylinder></geometry>
+        <material><ambient>0.72 0.72 0.70 1</ambient><diffuse>0.72 0.72 0.70 1</diffuse><specular>0.65 0.65 0.65 1</specular></material>
+      </visual>
+      <visual name="rack_backbone">
+        <pose>0.082 0 0.181 0 0 0</pose>
+        <geometry><box><size>0.026 1.00 0.022</size></box></geometry>
+        <material><ambient>0.13 0.14 0.15 1</ambient><diffuse>0.13 0.14 0.15 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_00">
+        <pose>0.099 -0.480 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_01">
+        <pose>0.099 -0.456 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_02">
+        <pose>0.099 -0.432 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_03">
+        <pose>0.099 -0.408 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_04">
+        <pose>0.099 -0.384 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_05">
+        <pose>0.099 -0.360 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_06">
+        <pose>0.099 -0.336 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_07">
+        <pose>0.099 -0.312 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_08">
+        <pose>0.099 -0.288 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_09">
+        <pose>0.099 -0.264 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_10">
+        <pose>0.099 -0.240 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_11">
+        <pose>0.099 -0.216 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_12">
+        <pose>0.099 -0.192 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_13">
+        <pose>0.099 -0.168 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_14">
+        <pose>0.099 -0.144 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_15">
+        <pose>0.099 -0.120 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_16">
+        <pose>0.099 -0.096 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_17">
+        <pose>0.099 -0.072 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_18">
+        <pose>0.099 -0.048 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_19">
+        <pose>0.099 -0.024 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_20">
+        <pose>0.099 0.000 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_21">
+        <pose>0.099 0.024 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_22">
+        <pose>0.099 0.048 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_23">
+        <pose>0.099 0.072 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_24">
+        <pose>0.099 0.096 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_25">
+        <pose>0.099 0.120 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_26">
+        <pose>0.099 0.144 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_27">
+        <pose>0.099 0.168 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_28">
+        <pose>0.099 0.192 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_29">
+        <pose>0.099 0.216 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_30">
+        <pose>0.099 0.240 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_31">
+        <pose>0.099 0.264 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_32">
+        <pose>0.099 0.288 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_33">
+        <pose>0.099 0.312 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_34">
+        <pose>0.099 0.336 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_35">
+        <pose>0.099 0.360 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_36">
+        <pose>0.099 0.384 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_37">
+        <pose>0.099 0.408 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_38">
+        <pose>0.099 0.432 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_39">
+        <pose>0.099 0.456 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="rack_tooth_40">
+        <pose>0.099 0.480 0.200 0 0 0.785398</pose>
+        <geometry><box><size>0.018 0.012 0.018</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="end_plate_-0.535">
+        <pose>0 -0.535 0.125 0 0 0</pose>
+        <geometry><box><size>0.23 0.018 0.15</size></box></geometry>
+        <material><ambient>0.13 0.14 0.15 1</ambient><diffuse>0.13 0.14 0.15 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
+      </visual>
+      <visual name="end_bolt_-0.535_-0.07_0.08">
+        <pose>-0.07 -0.535 0.08 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0080</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="end_bolt_-0.535_-0.07_0.17">
+        <pose>-0.07 -0.535 0.17 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0080</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="end_bolt_-0.535_0.07_0.08">
+        <pose>0.07 -0.535 0.08 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0080</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="end_bolt_-0.535_0.07_0.17">
+        <pose>0.07 -0.535 0.17 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0080</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="end_plate_0.535">
+        <pose>0 0.535 0.125 0 0 0</pose>
+        <geometry><box><size>0.23 0.018 0.15</size></box></geometry>
+        <material><ambient>0.13 0.14 0.15 1</ambient><diffuse>0.13 0.14 0.15 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
+      </visual>
+      <visual name="end_bolt_0.535_-0.07_0.08">
+        <pose>-0.07 0.535 0.08 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0080</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="end_bolt_0.535_-0.07_0.17">
+        <pose>-0.07 0.535 0.17 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0080</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="end_bolt_0.535_0.07_0.08">
+        <pose>0.07 0.535 0.08 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0080</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="end_bolt_0.535_0.07_0.17">
+        <pose>0.07 0.535 0.17 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0080</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <collision name="base_collision">
+        <pose>0 0 0.04 0 0 0</pose>
+        <geometry><box><size>0.22 1.10 0.09</size></box></geometry>
+      </collision>
+      <collision name="rail_collision">
+        <pose>0 0 0.16 0 0 0</pose>
+        <geometry><box><size>0.09 1.02 0.04</size></box></geometry>
+      </collision>
+      <collision name="rack_collision">
+        <pose>0.087 0 0.19 0 0 0</pose>
+        <geometry><box><size>0.04 1.00 0.04</size></box></geometry>
+      </collision>
+      <inertial>
+        <mass>25.0</mass>
+        <inertia><ixx>0.75</ixx><iyy>2.1</iyy><izz>2.65</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+    </link>
+
+    <link name="carriage">
+      <pose>0 0 0.205 0 0 0</pose>
+      <visual name="slider_block_body">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry><box><size>0.14 0.13 0.05</size></box></geometry>
+        <material><ambient>0.04 0.28 0.50 1</ambient><diffuse>0.04 0.28 0.50 1</diffuse><specular>0.25 0.25 0.25 1</specular></material>
+      </visual>
+      <visual name="top_mount_plate">
+        <pose>0 0 0.043 0 0 0</pose>
+        <geometry><box><size>0.22 0.18 0.018</size></box></geometry>
+        <material><ambient>0.06 0.38 0.68 1</ambient><diffuse>0.06 0.38 0.68 1</diffuse><specular>0.35 0.35 0.35 1</specular></material>
+      </visual>
+      <visual name="front_clamp">
+        <pose>0.075 0 0.005 0 0 0</pose>
+        <geometry><box><size>0.025 0.15 0.065</size></box></geometry>
+        <material><ambient>0.13 0.14 0.15 1</ambient><diffuse>0.13 0.14 0.15 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
+      </visual>
+      <visual name="rear_clamp">
+        <pose>-0.075 0 0.005 0 0 0</pose>
+        <geometry><box><size>0.025 0.15 0.065</size></box></geometry>
+        <material><ambient>0.13 0.14 0.15 1</ambient><diffuse>0.13 0.14 0.15 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
+      </visual>
+      <visual name="carriage_cap_-0.075_-0.055">
+        <pose>-0.075 -0.055 0.057 0 0 0</pose>
+        <geometry><cylinder><radius>0.0100</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="carriage_cap_-0.075_0.055">
+        <pose>-0.075 0.055 0.057 0 0 0</pose>
+        <geometry><cylinder><radius>0.0100</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="carriage_cap_0.075_-0.055">
+        <pose>0.075 -0.055 0.057 0 0 0</pose>
+        <geometry><cylinder><radius>0.0100</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="carriage_cap_0.075_0.055">
+        <pose>0.075 0.055 0.057 0 0 0</pose>
+        <geometry><cylinder><radius>0.0100</radius><length>0.0060</length></cylinder></geometry>
+        <material><ambient>0.01 0.01 0.012 1</ambient><diffuse>0.01 0.01 0.012 1</diffuse><specular>0.08 0.08 0.08 1</specular></material>
+      </visual>
+      <visual name="roller_-0.105_-0.052">
+        <pose>-0.105 -0.052 -0.012 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0160</radius><length>0.0120</length></cylinder></geometry>
+        <material><ambient>0.72 0.72 0.70 1</ambient><diffuse>0.72 0.72 0.70 1</diffuse><specular>0.65 0.65 0.65 1</specular></material>
+      </visual>
+      <visual name="roller_-0.105_0.052">
+        <pose>-0.105 0.052 -0.012 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0160</radius><length>0.0120</length></cylinder></geometry>
+        <material><ambient>0.72 0.72 0.70 1</ambient><diffuse>0.72 0.72 0.70 1</diffuse><specular>0.65 0.65 0.65 1</specular></material>
+      </visual>
+      <visual name="roller_0.105_-0.052">
+        <pose>0.105 -0.052 -0.012 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0160</radius><length>0.0120</length></cylinder></geometry>
+        <material><ambient>0.72 0.72 0.70 1</ambient><diffuse>0.72 0.72 0.70 1</diffuse><specular>0.65 0.65 0.65 1</specular></material>
+      </visual>
+      <visual name="roller_0.105_0.052">
+        <pose>0.105 0.052 -0.012 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.0160</radius><length>0.0120</length></cylinder></geometry>
+        <material><ambient>0.72 0.72 0.70 1</ambient><diffuse>0.72 0.72 0.70 1</diffuse><specular>0.65 0.65 0.65 1</specular></material>
+      </visual>
+      <collision name="carriage_collision">
+        <pose>0 0 0.018 0 0 0</pose>
+        <geometry><box><size>0.23 0.18 0.085</size></box></geometry>
+      </collision>
+      <inertial>
+        <mass>5.0</mass>
+        <inertia><ixx>0.014</ixx><iyy>0.02</iyy><izz>0.018</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+    </link>
+
+    <link name="servo_and_pinion">
+      <pose>0.145 -0.35 0.215 1.570796 0 0</pose>
+      <visual name="servo_body">
+        <pose>0 0 -0.055 0 0 0</pose>
+        <geometry><box><size>0.085 0.085 0.115</size></box></geometry>
+        <material><ambient>0.05 0.05 0.06 1</ambient><diffuse>0.05 0.05 0.06 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+      </visual>
+      <visual name="servo_label">
+        <pose>0 -0.0435 -0.055 0 0 0</pose>
+        <geometry><box><size>0.055 0.003 0.045</size></box></geometry>
+        <material><ambient>0.85 0.88 0.82 1</ambient><diffuse>0.85 0.88 0.82 1</diffuse><specular>0.1 0.1 0.1 1</specular></material>
+      </visual>
+      <visual name="servo_flange">
+        <pose>0 0 0.010 1.570796 0 0</pose>
+        <geometry><box><size>0.115 0.012 0.115</size></box></geometry>
+        <material><ambient>0.13 0.14 0.15 1</ambient><diffuse>0.13 0.14 0.15 1</diffuse><specular>0.2 0.2 0.2 1</specular></material>
+      </visual>
+      <visual name="motor_shaft">
+        <pose>0 0 0.068 0 0 0</pose>
+        <geometry><cylinder><radius>0.0140</radius><length>0.0500</length></cylinder></geometry>
+        <material><ambient>0.72 0.72 0.70 1</ambient><diffuse>0.72 0.72 0.70 1</diffuse><specular>0.65 0.65 0.65 1</specular></material>
+      </visual>
+      <visual name="pinion_body">
+        <pose>0 0 0.098 0 0 0</pose>
+        <geometry><cylinder><radius>0.0440</radius><length>0.0260</length></cylinder></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_00">
+        <pose>0.0520 0.0000 0.098 0 0 0.000000</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_01">
+        <pose>0.0489 0.0178 0.098 0 0 0.349066</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_02">
+        <pose>0.0398 0.0334 0.098 0 0 0.698132</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_03">
+        <pose>0.0260 0.0450 0.098 0 0 1.047198</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_04">
+        <pose>0.0090 0.0512 0.098 0 0 1.396263</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_05">
+        <pose>-0.0090 0.0512 0.098 0 0 1.745329</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_06">
+        <pose>-0.0260 0.0450 0.098 0 0 2.094395</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_07">
+        <pose>-0.0398 0.0334 0.098 0 0 2.443461</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_08">
+        <pose>-0.0489 0.0178 0.098 0 0 2.792527</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_09">
+        <pose>-0.0520 0.0000 0.098 0 0 3.141593</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_10">
+        <pose>-0.0489 -0.0178 0.098 0 0 3.490659</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_11">
+        <pose>-0.0398 -0.0334 0.098 0 0 3.839724</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_12">
+        <pose>-0.0260 -0.0450 0.098 0 0 4.188790</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_13">
+        <pose>-0.0090 -0.0512 0.098 0 0 4.537856</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_14">
+        <pose>0.0090 -0.0512 0.098 0 0 4.886922</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_15">
+        <pose>0.0260 -0.0450 0.098 0 0 5.235988</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_16">
+        <pose>0.0398 -0.0334 0.098 0 0 5.585054</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <visual name="pinion_tooth_17">
+        <pose>0.0489 -0.0178 0.098 0 0 5.934119</pose>
+        <geometry><box><size>0.014 0.006 0.026</size></box></geometry>
+        <material><ambient>0.48 0.49 0.47 1</ambient><diffuse>0.48 0.49 0.47 1</diffuse><specular>0.55 0.55 0.55 1</specular></material>
+      </visual>
+      <collision name="servo_collision">
+        <pose>0 0 -0.055 0 0 0</pose>
+        <geometry><box><size>0.09 0.09 0.12</size></box></geometry>
+      </collision>
+      <collision name="pinion_collision">
+        <pose>0 0 0.098 0 0 0</pose>
+        <geometry><box><size>0.11 0.11 0.03</size></box></geometry>
+      </collision>
+      <inertial>
+        <mass>2.8</mass>
+        <inertia><ixx>0.012</ixx><iyy>0.012</iyy><izz>0.006</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+      </inertial>
+    </link>
+
+    <joint name="carriage_slide_joint" type="prismatic">
+      <parent>base_frame</parent>
+      <child>carriage</child>
+      <axis><xyz>0 1 0</xyz><limit><lower>-0.42</lower><upper>0.42</upper><effort>180</effort><velocity>1.2</velocity></limit><dynamics><damping>18.0</damping><friction>3.0</friction></dynamics></axis>
+    </joint>
+
+    <joint name="pinion_drive_joint" type="revolute">
+      <parent>base_frame</parent>
+      <child>servo_and_pinion</child>
+      <axis><xyz>0 0 1</xyz><limit><lower>-1000000</lower><upper>1000000</upper><effort>15</effort><velocity>40</velocity></limit><dynamics><damping>0.15</damping><friction>0.02</friction></dynamics></axis>
+    </joint>
+  </model>
+</sdf>

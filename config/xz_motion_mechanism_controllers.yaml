@@ -1,0 +1,19 @@
+xz_motion_mechanism:
+  gazebo_ros_control:
+    pid_gains:
+      x_axis_joint: {p: 1200.0, i: 0.0, d: 80.0}
+      y_axis_joint: {p: 900.0, i: 0.0, d: 60.0}
+
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+
+  x_axis_position_controller:
+    type: position_controllers/JointPositionController
+    joint: x_axis_joint
+    pid: {p: 1200.0, i: 0.0, d: 80.0}
+
+  y_axis_position_controller:
+    type: position_controllers/JointPositionController
+    joint: y_axis_joint
+    pid: {p: 900.0, i: 0.0, d: 60.0}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="xz_motion_mechanism_step_visual">
+  <material name="cad_metal">
+    <color rgba="0.72 0.74 0.72 1"/>
+  </material>
+
+  <link name="world"/>
+
+  <link name="step_visual">
+    <visual name="module_visual">
+      <!-- STL is exported in millimetres. It is scaled to metres and centered. -->
+      <origin xyz="-0.347488 -0.369008 -0.590000" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://xz_motion_mechanism_sim/meshes/module_visual.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="cad_metal"/>
+    </visual>
+  </link>
+
+  <joint name="world_to_step_visual" type="fixed">
+    <parent link="world"/>
+    <child link="step_visual"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>

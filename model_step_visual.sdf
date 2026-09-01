@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <model name="xz_motion_mechanism_step_visual">
+    <static>true</static>
+    <link name="step_visual">
+      <visual name="module_visual">
+        <pose>-0.347488 -0.369008 -0.590000 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://xz_motion_mechanism_sim/meshes/module_visual.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.74 0.72 1</ambient>
+          <diffuse>0.72 0.74 0.72 1</diffuse>
+          <specular>0.35 0.35 0.35 1</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
